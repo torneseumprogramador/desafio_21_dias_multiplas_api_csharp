@@ -39,6 +39,18 @@ namespace UsuarioAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Usuarios API", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin() 
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +59,9 @@ namespace UsuarioAPI
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Usuarios API v1"));
-
+            
+            app.UseCors("AllowAll");
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
