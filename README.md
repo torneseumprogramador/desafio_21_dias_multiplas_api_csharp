@@ -15,3 +15,6 @@ docker logs desafio_multiplasapis_dotnet_usuario -f --tail 100
 docker start desafio_multiplasapis_dotnet_usuario
 docker stop desafio_multiplasapis_dotnet_usuario
 docker rm desafio_multiplasapis_dotnet_usuario
+
+
+docker exec -it desafio_multiplasapis_dotnet_usuario /bin/sh
