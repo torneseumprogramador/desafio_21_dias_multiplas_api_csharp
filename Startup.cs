@@ -29,7 +29,9 @@ namespace UsuarioAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("mysql");
+            // var connection = Configuration.GetConnectionString("mysql");
+            var connection = Environment.GetEnvironmentVariable("DATABASE_URL");
+            // Console.WriteLine($"=====[{connection}]=====");
             services.AddDbContext<Contexto>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
             services.AddScoped<DbContext, Contexto>();
 

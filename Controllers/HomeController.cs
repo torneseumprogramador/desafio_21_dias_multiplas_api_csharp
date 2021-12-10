@@ -17,7 +17,7 @@ namespace UsuarioAPI.Controllers
             return new 
             {
                 Mensagem = "Bem vindo a API do desafio 21 dias multiplas APIs",
-                Documentacao = $"https://{this.Request.Host}/swagger/index.html"
+                Documentacao = $"/swagger/index.html"
             };
         }
     }
